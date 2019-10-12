@@ -6,6 +6,17 @@ import Button from 'react-bootstrap/Button';
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {count: 0}
+  }
+  
+  updateCount(val){
+    this.setState((state, props)=>{
+      return {count: state.count = val}
+    });
+  }
+
   render(){
     return (
       <div className="App">
@@ -15,12 +26,12 @@ class App extends React.Component {
         </div>
         <AlertButton></AlertButton>
       </div>
-    );}
+    );}  
   }
 
-var myalert = function(stuff){
-  alert("test " + stuff)
-}
+  
+  
+
 
 class AlertButton extends React.Component{
   constructor(props){
