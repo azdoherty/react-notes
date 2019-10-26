@@ -3,12 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import BootstrapTable from 'react-bootstrap-table-next';
 
+const columns = [
+  {dataField:'id', text:'Identification'},
+  {dataField:'name', text:'Name'},
+  {dataField:'count', text:'Count'}]
 
 class App extends React.Component {
   constructor(props){
     super(props)
-    this.state = {count: 0}
+    this.state = {count: 0, data: []}
   }
   
   updateCount(val){
@@ -25,12 +31,10 @@ class App extends React.Component {
           more app
         </div>
         <AlertButton></AlertButton>
+        <BootstrapTable keyField='id' data={ this.state.data } columns={ columns } />
       </div>
     );}  
-  }
-
-  
-  
+  } 
 
 
 class AlertButton extends React.Component{
